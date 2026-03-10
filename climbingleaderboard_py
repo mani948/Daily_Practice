@@ -1,0 +1,18 @@
+n = int(input())
+rank = list(map(int, input().split()))
+
+m = int(input())
+player = list(map(int, input().split()))
+
+
+unique = [rank[0]]
+for i in range(1, n):
+    if rank[i] != rank[i-1]:
+        unique.append(rank[i])
+
+i = len(unique) - 1
+
+for p in player:
+    while i >= 0 and p >= unique[i]:
+        i -= 1
+    print(i + 2)
